@@ -1,30 +1,30 @@
 # Assignement description
-This exercise is about modelling a small forest of trees. Each tree has an age, a height, and also a growth rate. Note the definition of class, fields, and signature of the methods should match the description (if the description does not mention a returned value by a method, it means the method does not return anything). Furthermore, if you want to add additional methods that are not in the description, they should be declared as private. Implement the forest of trees as follows:
+In this assignment you will implement a program for exchanging messages between users of a simple messaging app. All methods described in the following should be defined as public and all fields as private. Note that the definition of classes, fields and signature of methods should fully match the description. If you want to add any additional method that is not in the description of the class, these should be defined as private.
 
-Create a class `Tree`
+Create two classes called `Message` and `User`.
 
-Add the following three private fields to the `Tree` class:
+In class `Message`, add the following fields:
 
-- `age` of type `int`: the tree's age in years.
-- `height` of type `double`: the tree's height in meters.
-- `growthRate` of type `double`: the tree's growth per year as a percentage.
+- `receiver` of type `User`: representing the user that receives the message.
+- `text` of type `String`: representing the text of a message.
 
-Create a constructor for the class `Tree(double growthRate)`, taking a single parameter of type `double`. The constructor must set the initial height to be 0.12 meters, and the age to be 1 year, and the growth rate to be the parameter given to the constructor.
+Implement the constructor `Message(User receiver, String text)` and initialise the fields with the value of corresponding parameters in the constructor.
 
-Create a public `toString()` method that returns a String with the format: `"Tree(age = <age>, height = <height>)"`, where `<age>` and `<height>` are substituted with what the value of the corresponding fields are. For example, if value of age is 1, and value of height is 0.12 it returns `"Tree(age = 1, height = 0.12)"`
+In class `Message`, implement methods User `getReceiver()`, and `String getText()` that return the value of the corresponding fields.
 
-Create a public method `growOneYear()`, which increases the age by one, and increases the height of the tree according to the formula `height * (1 + growthRate / 100)`.
+In class `User`, add the following fields to the class:
 
-Modify the `growOneYear()` method such that a tree will stop growing once it reaches a height of 14 meters.
+- `inbox` of type `Message[]`: representing the inbox of a user that has a fixed size.
+- `messageCount` of type `int`: representing the number of received messages in the inbox.
 
-Create a class `Forest`
+Implement the constructor `User()` and initialise the field `inbox` with an empty array of size 20, and assign zero to the field `messageCount`.
 
-Add a private field `trees` that stores an `ArrayList of Tree`
+Implement the method String `addMessage(Message msg)`, which adds a message `msg` in the `inbox`. The message is always added after the last message in the `inbox` and if the inbox is empty, at the beginning of the inbox. The method returns `"Message is added!"`. (Hint:  `messageCount` shows the number of messages in the inbox. So it should be modified accordingly whenever the number of messages in the inbox changes.)
 
-Create a constructor for the class `Forest()`. The constructor must initialize the field `trees` with an empty list.
+Modify the `addMessage` method such that, if the inbox is full, it just returns `"Sorry, the inbox is full!"`. Only if the inbox is not full, it adds the message in the inbox and returns `"Message is added!"`.
 
-Create a public method `addTree(int growthRate)` that adds a `Tree` with growth rate `growthRate` to the `trees` list.
+Implement the method `boolean sendMessage(Message msg)` that adds `msg` in the inbox of the `receiver` of the message `msg`. If the message is successfully added in the inbox of the receiver, that is if the inbox of the receiver is not full, the method returns `true`. Otherwise, it returns `false`. (Hint: use the `addMessage` method as a helper method.)
 
-Create a public `toString()` method that returns a String with the format: `"Forest(Tree(age = 1, height = 0.12)Tree(age = 1, height = 0.12)Tree(age = 1, height = 0.12))"`, where the data reflects the actual state of each tree in the forest (the string should include the state of all trees in the forest. In this example there are three trees in the forest and all have age 1 and height 0.12).
+Implement a method `String readMessage()` such that, if the inbox is empty, the method returns `"There is no message to read!"`. Otherwise, it returns the value of `text` field of the first message in the inbox, the message at index 0, and deletes the message from inbox. (Hint: deleting the message involves decreasing the value of `messageCount`. And the remaining messages in the inbox, if any, should be shifted one position to the left. For example, message at index 1 moves to index 0, message at index 2 moves to index 1 and so on)
 
-Create a `growOneYear()` method that causes all the trees in the forrest to grow by one year.
+**Files to submit:** User.java, Message.java
