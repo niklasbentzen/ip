@@ -23,8 +23,7 @@ An example of such input is as follows:
 1 kg tomato\
 500 g onion\
 300 g bread\
-2 kg oil
-
+2 kg oil\
 **RECIPE fish dish**\
 1 kg fish\
 500 g potato\
