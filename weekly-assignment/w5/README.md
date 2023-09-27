@@ -18,16 +18,17 @@ The list of available ingredients at home will start with a line **AVAILABLE**
 Each recipe also starts with a line starting with **RECIPE**
 An example of such input is as follows:
 
-**AVAILABLE**
-100 g potato
-1 kg tomato
-500 g onion
-300 g bread
+**AVAILABLE**\
+100 g potato\
+1 kg tomato\
+500 g onion\
+300 g bread\
 2 kg oil
-**RECIPE fish dish**
-1 kg fish
-500 g potato
-100 g oil
+
+**RECIPE fish dish**\
+1 kg fish\
+500 g potato\
+100 g oil\
 500 g milk
 
 As you can see above, each ingredient line has three parts: **amount unit ingredient**
