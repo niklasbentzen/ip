@@ -39,9 +39,9 @@ The printed shopping list must start with **Shopping List**: . Then in each line
 in grams), the unit that is `g`, and the name of ingredient are printed.
 The shopping list must be printed in alphabetical order. For the above example, the following shopping list is printed:
 
-**Shopping List:**
-1000 g fish
-500 g milk
+**Shopping List:**\
+1000 g fish\
+500 g milk\
 400 g potato
 
 If no item is in the shopping list the method just prints **Shopping List**:
